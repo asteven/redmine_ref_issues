@@ -13,7 +13,7 @@ This is a fork of [redmine_wiki_lists](https://github.com/tkusukawa/redmine_wiki
 ## Requirements
 
 - Redmine `>= 4.1.0`
-- Ruby `>= 2.6`
+- Ruby `>= 2.7`
 
 ## Installing
 
