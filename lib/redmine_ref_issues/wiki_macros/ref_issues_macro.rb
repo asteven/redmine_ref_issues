@@ -213,10 +213,10 @@ module RedmineRefIssues
 
               disp = sum.to_s
             elsif params[:format] == 'pdf'
-              disp = render partial: 'issues/list.html', locals: { issues: @issues, query: @query }
+              disp = render 'issues/list.html', issues: @issues, query: @query
             else
               disp = +context_menu.to_s
-              disp << render(partial: 'issues/list', locals: { issues: @issues, query: @query })
+              disp << render('issues/list', issues: @issues, query: @query)
             end
 
             disp.html_safe
