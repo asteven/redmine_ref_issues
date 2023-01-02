@@ -160,7 +160,7 @@ module RedmineRefIssues
             @query.column_names = parser.columns unless parser.columns.empty?
             @issues = @query.issues order: sort_clause
 
-            if parser.zero_flag && @issues.size.zero?
+            if parser.zero_flag && @issues.empty?
               disp = ''
             elsif parser.only_text || parser.only_link
               disp = +''
