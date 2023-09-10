@@ -235,7 +235,7 @@ class WikiControllerTest < RedmineRefIssues::ControllerTest
   def test_ref_issues_macro_without_issue_permission
     @request.session[:user_id] = 8
 
-    Role.all.each { |r| r.remove_permission! :view_issues }
+    Role.find_each { |r| r.remove_permission! :view_issues }
     User.current = User.find 8
 
     assert User.current.allowed_to?(:view_wiki_pages, @project)
