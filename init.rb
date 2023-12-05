@@ -3,9 +3,9 @@
 loader = RedminePluginKit::Loader.new plugin_id: 'redmine_ref_issues'
 
 Redmine::Plugin.register :redmine_ref_issues do
-  name 'Redmine ref_issues macro'
+  name 'ref_issues macro'
   author 'AlphaNodes GmbH'
-  description 'Wiki macro to list issues.'
+  description 'Wiki macro ref_issues to list issues.'
   version RedmineRefIssues::VERSION
   url 'https://github.com/alphanodes/redmine_ref_issues'
   author_url 'https://alphanodes.com/'

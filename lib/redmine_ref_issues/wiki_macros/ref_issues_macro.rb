@@ -120,7 +120,7 @@ module RedmineRefIssues
               cr_count = 0
               msg = +"- failed add_filter: #{filter_str}<br><br>[FILTER]<br>"
 
-              @query.available_filters.each do |k, _f|
+              @query.available_filters.each_key do |k|
                 if cr_count >= 5
                   msg += '<br>'
                   cr_count = 0
@@ -130,7 +130,7 @@ module RedmineRefIssues
                 cr_count += 1
               end
 
-              models.each do |k, _m|
+              models.each_key do |k|
                 if cr_count >= 5
                   msg += '<br>'
                   cr_count = 0
