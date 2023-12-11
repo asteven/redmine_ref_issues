@@ -84,6 +84,9 @@ Performance/ChainArrayAllocation:
 Style/AutoResourceCleanup:
   Enabled: true
 
+Style/SuperWithArgsParentheses:
+  Enabled: false
+
 Style/Documentation:
   Enabled: false
 
