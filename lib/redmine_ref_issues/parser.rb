@@ -258,7 +258,7 @@ module RedmineRefIssues
           return sql
         end
 
-        super field, operator, value, db_table, db_field, is_custom_filter
+        super
       end
     end
 
