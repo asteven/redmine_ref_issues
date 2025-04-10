@@ -150,6 +150,9 @@ module RedmineRefIssues
       @query.available_filters['treated'] = { type: :date }
       @query.available_filters['sprint_id'] = { type: :int }
 
+      # Hack to allow use of 'story_points' from the redmine_agile plugin in columns.
+      #@query.available_columns << QueryColumn.new(:story_points, caption: 'SP')
+      @query.available_columns << QueryColumn.new(:story_points, caption: :label_agile_story_points)
       @query
     end
 
@@ -186,6 +189,10 @@ module RedmineRefIssues
       return :updated_on if name_sym == :updated
       return :created_on if name_sym == :created
       return name_sym if name.start_with? 'cf_'
+
+      # Hack to allow use of 'story_points' from the redmine_agile plugin as a column.
+      #return name_sym if name.start_with? 'attr_'
+      return name_sym if name == 'story_points'
 
       raise "- unknown column:#{name}"
     end

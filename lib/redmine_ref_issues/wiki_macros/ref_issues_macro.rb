@@ -202,7 +202,12 @@ module RedmineRefIssues
               atr = parser.sum_field if parser.sum_field
 
               @issues.each do |issue|
-                if issue.attributes.key? atr
+                # Hack to allow to summarize by a non-default attribute
+                #   like 'story_points' from the redmine_agile plugin.
+                _value = issue.try(atr)
+                if !_value.nil?
+                  sum += _value
+                elsif issue.attributes.key? atr
                   sum += issue.attributes[atr].to_f
                 else
                   issue.custom_field_values.each do |cf|
